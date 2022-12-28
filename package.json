@@ -1,0 +1,14 @@
+{
+  "name": "rest-countries-api-with-color-theme-switcher-master",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/LeandroSFraga/RestApiCountries.git",
+  "author": "LeandroFraga99 <71570108+LeandroFraga99@users.noreply.github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  },
+  "scripts": {
+    "dev": "tsc --project tsconfig.json -w"
+  }
+}
