@@ -89,6 +89,27 @@ body{
 
 .container__flags {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     padding: 0 5em;
+    margin-bottom: 6em;
+}
+
+.container__flags-card {
+    width: 20vw;
+    background-color: var(--light-mode-elements);
+    box-shadow: 5px 5px 12px -10px var(--light-mode-input);
+    padding-bottom: 3em;
+}
+
+.container__flags-card-flag {
+    width: 20vw;
+}
+.container__flags-card-texts {
+    display: block;
+    align-items: center;
+    padding: 0 2em;
+}
+
+.container__flags-card-texts-info {
+    margin: 0.3em 0 0 0;
 }
