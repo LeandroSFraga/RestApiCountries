@@ -2,8 +2,7 @@
     "compilerOptions": {
         "outDir": "./src/js",
         "allowJs": true,
-        "target": "ES5",
-        "module": "commonJS",
+        "target": "ES6",
         "moduleResolution": "node"
     },
     "include": ["src/ts/*.ts"]
