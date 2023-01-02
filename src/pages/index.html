@@ -35,18 +35,35 @@
                 <img class="container__top-filter-icon" src="/src/imgs/dropdown.svg">
             </div>
             <div class="container__top-content">
-                <p>Africa</p>
-                <p>America</p>
-                <p>Asia</p>
-                <p>Europe</p>
-                <p>Oceania</p>
+                <button btn-africa>
+                    <p>Africa</p>
+                </button>
+                <button btn-america>
+                    <p>America</p>
+                </button>
+                <button btn-asia>
+                    <p>Asia</p>
+                </button>
+                <button btn-europe>
+                    <p>Europe</p>
+                </button>
+                <button btn-oceania>
+                    <p>Oceania</p>
+                </button>
             </div>
         </div>
     </div>
 
     <div>
+        <script>
+            function infoCountry(nome) {
+                console.log(nome);
+                localStorage.setItem("nome", nome);
+                window.location.href = "/src/pages/country.html"
+            } 
+        </script>
         <ul class="container__flags" container-flags>
-            
+
         </ul>
     </div>
 

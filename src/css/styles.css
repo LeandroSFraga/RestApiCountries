@@ -39,6 +39,17 @@ a {
     text-decoration: none;
 }
 
+button {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    display: block;
+}
+
 /* Navbar */
 
 .navbar {
@@ -148,7 +159,7 @@ a {
 
 .container__top-content p {
     padding: 7px 14px;
-    display: block;
+    height: 100%;
     margin: 0;
     cursor: pointer;
     transition: font-weight 0.2s;
@@ -162,10 +173,11 @@ a {
 
 .container__flags {
     display: grid;
+    grid-template-columns: repeat(4, 250px);
     grid-template-areas:
         "container__flags-card container__flags-card container__flags-card container__flags-card";
     flex-wrap: wrap;
-    justify-content: space-between;
+    grid-gap: 60px;
     width: 1180px;
     margin: 0 auto 6em;
 }
@@ -175,7 +187,6 @@ a {
     background-color: var(--light-mode-elements);
     box-shadow: 0px 0px 5px -2px var(--light-mode-input);
     padding-bottom: 3em;
-    margin-bottom: 3em;
 }
 
 .container__flags-card-flag {
