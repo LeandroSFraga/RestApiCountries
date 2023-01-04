@@ -8,11 +8,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import { conectApi } from "./conectapi.js";
-const AFRICA = "africa";
-const AMERICA = "america";
-const EUROPE = "europe";
-const ASIA = "asia";
-const OCEANIA = "oceania";
+const AFRICA = "Africa";
+const AMERICA = "Americas";
+const EUROPE = "Europe";
+const ASIA = "Asia";
+const OCEANIA = "Oceania";
 let flag;
 // list
 const lista = document.querySelector("[container-flags]");
@@ -36,6 +36,9 @@ const input = document.querySelector("[search-bar]");
 input.addEventListener('input', function searchCountries() {
     return __awaiter(this, void 0, void 0, function* () {
         if (input.value == '') {
+            while (lista.firstChild) {
+                lista.removeChild(lista.firstChild);
+            }
             listCountries();
         }
         else {
@@ -44,7 +47,7 @@ input.addEventListener('input', function searchCountries() {
             while (lista.firstChild) {
                 lista.removeChild(lista.firstChild);
             }
-            foreach(countries);
+            foreach(countries.data);
         }
     });
 });
@@ -53,12 +56,12 @@ function listCountries() {
     return __awaiter(this, void 0, void 0, function* () {
         const countries = yield conectApi.getCountries();
         console.log(countries);
-        foreach(countries);
+        foreach(countries.data);
     });
 }
 function foreach(countries) {
     countries.forEach(element => {
-        lista.appendChild(createCard(element.flags.svg, element.name.common, element.population, element.region, element.capital));
+        lista.appendChild(createCard(element.flag, element.name, element.population, element.region, element.capital));
     });
 }
 //filters
@@ -69,7 +72,7 @@ africa.addEventListener('click', function showByRegion() {
         while (lista.firstChild) {
             lista.removeChild(lista.firstChild);
         }
-        foreach(countries);
+        foreach(countries.data);
     });
 });
 const america = document.querySelector("[btn-america]");
@@ -79,7 +82,7 @@ america.addEventListener('click', function showByRegion() {
         while (lista.firstChild) {
             lista.removeChild(lista.firstChild);
         }
-        foreach(countries);
+        foreach(countries.data);
     });
 });
 const europe = document.querySelector("[btn-europe]");
@@ -89,7 +92,7 @@ europe.addEventListener('click', function showByRegion() {
         while (lista.firstChild) {
             lista.removeChild(lista.firstChild);
         }
-        foreach(countries);
+        foreach(countries.data);
     });
 });
 const asia = document.querySelector("[btn-asia]");
@@ -99,7 +102,7 @@ asia.addEventListener('click', function showByRegion() {
         while (lista.firstChild) {
             lista.removeChild(lista.firstChild);
         }
-        foreach(countries);
+        foreach(countries.data);
     });
 });
 const oceania = document.querySelector("[btn-oceania]");
@@ -109,7 +112,7 @@ oceania.addEventListener('click', function showByRegion() {
         while (lista.firstChild) {
             lista.removeChild(lista.firstChild);
         }
-        foreach(countries);
+        foreach(countries.data);
     });
 });
 //darkmode

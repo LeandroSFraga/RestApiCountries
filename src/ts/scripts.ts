@@ -1,11 +1,11 @@
 import { conectApi } from "./conectapi.js";
 
 
-const AFRICA = "africa";
-const AMERICA = "america";
-const EUROPE = "europe";
-const ASIA = "asia";
-const OCEANIA = "oceania";
+const AFRICA = "Africa";
+const AMERICA = "Americas";
+const EUROPE = "Europe";
+const ASIA = "Asia";
+const OCEANIA = "Oceania";
 let flag;
 
 
@@ -35,6 +35,9 @@ function createCard(flag: string, name: string, population: number, region: stri
 const input = document.querySelector<HTMLInputElement>("[search-bar]");
 input.addEventListener('input', async function searchCountries() {
     if (input.value == '') {
+        while (lista.firstChild) {
+            lista.removeChild(lista.firstChild);
+        }
         listCountries();
     } else {
         console.log(input.value);
@@ -42,7 +45,7 @@ input.addEventListener('input', async function searchCountries() {
         while (lista.firstChild) {
             lista.removeChild(lista.firstChild);
         }
-        foreach(countries);
+        foreach(countries.data);
     }
 });
 
@@ -51,12 +54,12 @@ input.addEventListener('input', async function searchCountries() {
 async function listCountries() {
     const countries = await conectApi.getCountries();
     console.log(countries);
-    foreach(countries);
+    foreach(countries.data);
 }
 
 function foreach(countries: Array<any>) {
     countries.forEach(element => {
-        lista.appendChild(createCard(element.flags.svg, element.name.common, element.population, element.region, element.capital));
+        lista.appendChild(createCard(element.flag, element.name, element.population, element.region, element.capital));
     });
 }
 
@@ -68,7 +71,7 @@ africa.addEventListener('click', async function showByRegion() {
     while (lista.firstChild) {
         lista.removeChild(lista.firstChild);
     }
-    foreach(countries);
+    foreach(countries.data);
 });
 const america = document.querySelector("[btn-america]");
 america.addEventListener('click', async function showByRegion() {
@@ -76,7 +79,7 @@ america.addEventListener('click', async function showByRegion() {
     while (lista.firstChild) {
         lista.removeChild(lista.firstChild);
     }
-    foreach(countries);
+    foreach(countries.data);
 });
 const europe = document.querySelector("[btn-europe]");
 europe.addEventListener('click', async function showByRegion() {
@@ -84,7 +87,7 @@ europe.addEventListener('click', async function showByRegion() {
     while (lista.firstChild) {
         lista.removeChild(lista.firstChild);
     }
-    foreach(countries);
+    foreach(countries.data);
 });
 const asia = document.querySelector("[btn-asia]");
 asia.addEventListener('click', async function showByRegion() {
@@ -92,7 +95,7 @@ asia.addEventListener('click', async function showByRegion() {
     while (lista.firstChild) {
         lista.removeChild(lista.firstChild);
     }
-    foreach(countries);
+    foreach(countries.data);
 });
 const oceania = document.querySelector("[btn-oceania]");
 oceania.addEventListener('click', async function showByRegion() {
@@ -100,7 +103,7 @@ oceania.addEventListener('click', async function showByRegion() {
     while (lista.firstChild) {
         lista.removeChild(lista.firstChild);
     }
-    foreach(countries);
+    foreach(countries.data);
 });
 
 //darkmode

@@ -5,30 +5,20 @@ const article = document.querySelector("[container__country]");
 async function showCountry(nome: string) {
     const country = await conectApi.searchCountries(nome);
     console.log(country);
-    foreach(country);
-}
-
-let borderhtml: string = ''
-async function showCountryByCode(code: Array<any>) {
-    code.forEach(async Element => {
-        const country = await conectApi.searchCountriesByCode(Element);
-        console.log(country);
-        borderhtml += `${borderof(country)}`;
-    })
-    console.log(borderhtml);
-    return borderhtml;
+    foreach(country.data);
+    like();
 }
 
 function foreach(country: Array<any>) {
     country.forEach(element => {
-        article.appendChild(createCountry(element.flags.svg,
-            element.name.common,
-            element.name.official,
+        article.appendChild(createCountry(element.flag,
+            element.name,
+            element.name, //native name
             element.population,
             element.region,
             element.subregion,
             element.capital,
-            element.tld,
+            element.topLevelDomains,
             element.currencies,
             element.languages,
             element.borders,
@@ -36,7 +26,8 @@ function foreach(country: Array<any>) {
     });
 }
 
-function createCountry(
+let created = false;
+ function createCountry(
     flag: string,
     name: string,
     nativename: string,
@@ -47,7 +38,7 @@ function createCountry(
     topleveldomain: string,
     currencies: Object,
     languages: Object,
-    bordercountries: Array<any>,
+    borders: Array<any>,
     likes: number
 ) {
     const card = document.createElement("article");
@@ -68,17 +59,15 @@ function createCountry(
                 <li><b>Currencies: </b>${toStringCurrencies(currencies)}</li >
                 <li><b>Languages: </b>${toStringLang(languages)}</li >
             </ul>
-        <ul class="container__country-details-border">
-            <p><b>Border Countries: </b></p>
-            ${showCountryByCode(bordercountries)}
-            <li class="container__country-details-border-country">France</li>
-        </ul>
-        <div class="container__country-likes">
-        <button class="btn-like"></button>
-        <p class="text-like"> ${likes} Likes </p>
-        </div>
+            <ul class="container__country-details-border">
+                <p><b>Border Countries: </b></p>
+                ${borderof(borders)}
+            </ul>
+            <div class="container__country-likes">
+                <button class="btn-like" btn-like>&#10084</button>
+                <p class="text-like"> ${likes} Likes </p>
+            </div>
     </div>`
-
     return card;
 }
 
@@ -97,14 +86,19 @@ function toStringLang(list: Object) {
 }
 
 
-// let borderslist: string ='';
+//FRONTEIRAS
+
 function borderof(borders: Array<any>): string {
     let borderslist = '';
-    borders.forEach(Element => {
-        borderslist = `${createborder(Element.name.common)}
-`;
-    })
-    console.log(borderslist);
+//     if( borders.length === 0){
+//         return "none";
+//     }
+//     borders.forEach(Element => {
+//         borderslist += `${createborder(Element)}
+// `;
+//         console.log(borderslist);
+//     })
+//     console.log(borderslist);
     return borderslist;
 }
 
@@ -113,31 +107,49 @@ function createborder(country: string) {
     return borders;
 }
 
-
-
-function addLike(){
-    const btn = document.querySelector('.btn-like');
-    btn.addEventListener('click', function() {
-        btn.classList.toggle('liked')
-    });
-}
-
-function removeLike(){
-
-}
-
 //darkmode
 
 showCountry(localStorage.getItem("nome"));
 document.querySelector("[btn]").addEventListener("click", () => {
-    if(localStorage.getItem("darkmode") === "sim"){
+    if (localStorage.getItem("darkmode") === "sim") {
         localStorage.setItem("darkmode", "não");
-    } else{
+    } else {
         localStorage.setItem("darkmode", "sim");
     }
     document.body.classList.toggle('dark-mode');
 })
 
-if (localStorage.getItem("darkmode") === "sim"){
+if (localStorage.getItem("darkmode") === "sim") {
     document.body.classList.toggle('dark-mode');
 }
+
+// LIKe
+
+function like() {
+    const countryname = localStorage.getItem("nome");
+    const btn = document.querySelector('[btn-like]');
+    btn.addEventListener('click', async function () {
+        if (sessionStorage.getItem(`${countryname}liked`) === 'sim') {
+            const body = {
+                name: countryname,
+                like: -1
+            }
+            sessionStorage.setItem(`${countryname}liked`, "nao");
+            btn.classList.toggle('liked');
+            conectApi.putCountries(body)
+        } else {
+            const body = {
+                name: countryname,
+                like: 1
+            }
+            btn.classList.toggle('non-liked');
+            sessionStorage.setItem(`${countryname}liked`, "sim");
+            conectApi.putCountries(body)
+        }
+
+    });
+    if (sessionStorage.getItem(`${countryname}liked`) === "sim"){
+        btn.classList.toggle('liked');
+    }
+}
+

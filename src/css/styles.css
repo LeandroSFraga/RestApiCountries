@@ -20,6 +20,14 @@
     --color-svg-elements: invert(95%) sepia(100%) saturate(20%) hue-rotate(22deg) brightness(104%) contrast(108%);
 }
 
+.liked {
+    color: red;
+}
+
+.non-liked {
+    color: var(--color-text);
+}
+
 header {
     background-color: var(--color-elements);
 }
@@ -313,6 +321,7 @@ button {
 }
 
 .container__country-details-border {
+    flex-wrap: wrap;
     display: flex;
     align-items: center;
     padding: 0;
@@ -333,4 +342,18 @@ button {
     box-shadow: 0px 0px 5px 2px var(--color-input);
     cursor: pointer;
     
+}
+
+.container__country-likes{
+    display: flex;
+}
+
+.btn-like{
+    margin-right: 16px;
+    transition: 0.2s;
+}
+
+.btn-like:hover {
+    font-size: 20px;
+    transition: 0.2s;
 }

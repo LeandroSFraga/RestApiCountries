@@ -7,14 +7,30 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const API = "https://restcountries.com/v3.1/all";
-const API_NAME = "https://restcountries.com/v3.1/name/";
-const API_REGION = "https://restcountries.com/v3.1/region/";
+const API = "https://countries-api-esfl.onrender.com/countries";
+const API_NAME = "https://countries-api-esfl.onrender.com/countries/filterBy?name=";
+const API_REGION = "https://countries-api-esfl.onrender.com/countries/filterBy?region=";
+const API_PUT = "https://countries-api-esfl.onrender.com/countries/likes/";
 const API_CODE = "https://restcountries.com/v3.1/alpha/";
 function getCountries() {
     return __awaiter(this, void 0, void 0, function* () {
         const conect = yield fetch(API);
         const convertConect = yield conect.json();
+        return convertConect;
+    });
+}
+function putCountries(body) {
+    return __awaiter(this, void 0, void 0, function* () {
+        console.log(body);
+        const conect = yield fetch(API_PUT, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        });
+        const convertConect = yield conect.json();
+        console.log(convertConect);
         return convertConect;
     });
 }
@@ -43,5 +59,6 @@ export const conectApi = {
     getCountries,
     searchCountries,
     searchCountriesByRegion,
-    searchCountriesByCode
+    searchCountriesByCode,
+    putCountries
 };
