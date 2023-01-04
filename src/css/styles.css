@@ -29,7 +29,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
-    transition: 0.5s;
+    ;
 }
 
 ul {
@@ -63,7 +63,7 @@ button {
     align-items: center;
     padding: 0 5em;
     box-shadow: 0px 5px 12px -10px var(--color-input);
-    transition: 0.5s;
+    ;
 }
 
 .navbar__darkmode {
@@ -106,7 +106,7 @@ button {
     border-radius: 5px;
     box-shadow: 0px 0px 5px -2px var(--color-input);
     transition: box-shadow 0.3s;
-    transition: 0.5s;
+    ;
 }
 
 
@@ -122,7 +122,7 @@ button {
     margin: 1em 0 1em 2em;
     background-color: var(--color-elements);
     color: var(--color-text);
-    transition: 0.5s;
+    ;
 }
 
 .container__top-search-text {
@@ -132,7 +132,7 @@ button {
 
 .container__top-search:focus-within {
     box-shadow: 0px 0px 5px 2px var(--color-input);
-    transition: 0.5s;
+    ;
 }
 
 .container__top-filter {
@@ -143,7 +143,7 @@ button {
     background-color: var(--color-elements);
     border-radius: 5px;
     box-shadow: 0px 0px 5px -2px var(--color-input);
-    transition: 0.5s;
+    ;
 }
 
 .container__top-filter {
@@ -176,7 +176,7 @@ button {
     margin-top: 2px;
     border-radius: 5px;
     box-shadow: 0px 0px 5px -2px var(--color-input);
-    transition: 0.5s;
+    ;
 }
 
 .container__top-content p {
@@ -209,7 +209,7 @@ button {
     background-color: var(--color-elements);
     box-shadow: 0px 0px 5px -2px var(--color-input);
     padding-bottom: 3em;
-    transition: 0.5s;
+    ;
 }
 
 .container__flags-card-flag {
@@ -221,7 +221,7 @@ button {
 .container__flags-card-flag:hover {
     cursor: pointer;
     box-shadow: 0px 0px 5px 2px var(--color-input);
-    transition: 0.5s;
+    ;
 }
 
 .container__flags-card-texts {
@@ -255,13 +255,13 @@ button {
     box-shadow: 0px 0px 5px -2px var(--color-input);
     cursor: pointer;
     transition: box-shadow 0.3s;
-    transition: 0.5s;
+    ;
 
 }
 
 .container__top-button:hover {
     box-shadow: 0px 0px 5px 2px var(--color-input);
-    transition: 0.5s;
+    ;
 }
 
 .container__top-button-icon {
@@ -315,11 +315,11 @@ button {
     padding: 3px 15px;
     margin-left: 1em;
     transition: box-shadow 0.3s;
-    transition: 0.5s;
+    ;
 }
 
 .container__country-details-border-country:hover {
     box-shadow: 0px 0px 5px 2px var(--color-input);
     cursor: pointer;
-    transition: 0.5s;
+    ;
 }

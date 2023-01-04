@@ -112,6 +112,16 @@ oceania.addEventListener('click', function showByRegion() {
         foreach(countries);
     });
 });
+//darkmode
 document.querySelector("[btn]").addEventListener("click", () => {
+    if (localStorage.getItem("darkmode") === "sim") {
+        localStorage.setItem("darkmode", "não");
+    }
+    else {
+        localStorage.setItem("darkmode", "sim");
+    }
     document.body.classList.toggle('dark-mode');
 });
+if (localStorage.getItem("darkmode") === "sim") {
+    document.body.classList.toggle('dark-mode');
+}
