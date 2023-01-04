@@ -1,8 +1,10 @@
 :root {
-    --color-text: hsl(200, 15%, 8%);
+    --color-text: #111517;
     --color-input: hsl(0, 0%, 52%);
     --color-background: hsl(0, 0%, 98%);
     --color-elements: hsl(0, 0%, 100%);
+
+    --color-svg-elements: invert(4%) sepia(3%) saturate(5235%) hue-rotate(156deg) brightness(96%) contrast(92%);
 
     --homepage-text: 14px;
     --detail-page-text: 16px;
@@ -14,6 +16,8 @@
     --color-elements: hsl(209, 23%, 22%);
     --color-background: hsl(207, 26%, 17%);
     --color-text: hsl(0, 0%, 100%);
+
+    --color-svg-elements: invert(95%) sepia(100%) saturate(20%) hue-rotate(22deg) brightness(104%) contrast(108%);
 }
 
 header {
@@ -29,7 +33,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
-    ;
+    
 }
 
 ul {
@@ -63,7 +67,7 @@ button {
     align-items: center;
     padding: 0 5em;
     box-shadow: 0px 5px 12px -10px var(--color-input);
-    ;
+    
 }
 
 .navbar__darkmode {
@@ -74,6 +78,7 @@ button {
 
 .navbar__darkmode-icon {
     cursor: pointer;
+    filter: var(--color-svg-elements);
 }
 
 .navbar__darkmode-text {
@@ -106,7 +111,7 @@ button {
     border-radius: 5px;
     box-shadow: 0px 0px 5px -2px var(--color-input);
     transition: box-shadow 0.3s;
-    ;
+    
 }
 
 
@@ -114,6 +119,7 @@ button {
 .container__top-search-icon {
     margin: 1em 0 1em 2em;
     cursor: pointer;
+    filter: var(--color-svg-elements);
 }
 
 
@@ -122,7 +128,7 @@ button {
     margin: 1em 0 1em 2em;
     background-color: var(--color-elements);
     color: var(--color-text);
-    ;
+    
 }
 
 .container__top-search-text {
@@ -132,7 +138,7 @@ button {
 
 .container__top-search:focus-within {
     box-shadow: 0px 0px 5px 2px var(--color-input);
-    ;
+    
 }
 
 .container__top-filter {
@@ -143,7 +149,7 @@ button {
     background-color: var(--color-elements);
     border-radius: 5px;
     box-shadow: 0px 0px 5px -2px var(--color-input);
-    ;
+    
 }
 
 .container__top-filter {
@@ -156,6 +162,10 @@ button {
 .container__top-filter-text,
 .container__top-filter-icon {
     margin: 1em;
+}
+
+.container__top-filter-icon {
+    filter: var(--color-svg-elements);
 }
 
 .container__top-dropdown {
@@ -176,7 +186,7 @@ button {
     margin-top: 2px;
     border-radius: 5px;
     box-shadow: 0px 0px 5px -2px var(--color-input);
-    ;
+    
 }
 
 .container__top-content p {
@@ -209,7 +219,7 @@ button {
     background-color: var(--color-elements);
     box-shadow: 0px 0px 5px -2px var(--color-input);
     padding-bottom: 3em;
-    ;
+    
 }
 
 .container__flags-card-flag {
@@ -221,7 +231,7 @@ button {
 .container__flags-card-flag:hover {
     cursor: pointer;
     box-shadow: 0px 0px 5px 2px var(--color-input);
-    ;
+    
 }
 
 .container__flags-card-texts {
@@ -255,17 +265,18 @@ button {
     box-shadow: 0px 0px 5px -2px var(--color-input);
     cursor: pointer;
     transition: box-shadow 0.3s;
-    ;
+    
 
 }
 
 .container__top-button:hover {
     box-shadow: 0px 0px 5px 2px var(--color-input);
-    ;
+    
 }
 
 .container__top-button-icon {
     margin: 0.5em 0 0.5em 2em;
+    filter: var(--color-svg-elements);
 }
 
 .container__top-button-text {
@@ -315,11 +326,11 @@ button {
     padding: 3px 15px;
     margin-left: 1em;
     transition: box-shadow 0.3s;
-    ;
+    
 }
 
 .container__country-details-border-country:hover {
     box-shadow: 0px 0px 5px 2px var(--color-input);
     cursor: pointer;
-    ;
+    
 }
