@@ -23,7 +23,7 @@ function foreach(country: Array<any>) {
     country.forEach(element => {
         article.appendChild(createCountry(element.flags.svg,
             element.name.common,
-            element.nativename,
+            element.name.official,
             element.population,
             element.region,
             element.subregion,
@@ -31,7 +31,8 @@ function foreach(country: Array<any>) {
             element.tld,
             element.currencies,
             element.languages,
-            element.borders));
+            element.borders,
+            element.likes));
     });
 }
 
@@ -46,7 +47,8 @@ function createCountry(
     topleveldomain: string,
     currencies: Object,
     languages: Object,
-    bordercountries: Array<any>
+    bordercountries: Array<any>,
+    likes: number
 ) {
     const card = document.createElement("article");
     //const populationMask = maskPop(population);
@@ -71,6 +73,10 @@ function createCountry(
             ${showCountryByCode(bordercountries)}
             <li class="container__country-details-border-country">France</li>
         </ul>
+        <div class="container__country-likes">
+        <button class="btn-like"></button>
+        <p class="text-like"> ${likes} Likes </p>
+        </div>
     </div>`
 
     return card;
@@ -107,4 +113,20 @@ function createborder(country: string) {
     return borders;
 }
 
+
+
+function addLike(){
+    const btn = document.querySelector('.btn-like');
+    btn.addEventListener('click', function() {
+        btn.classList.toggle('liked')
+    });
+}
+
+function removeLike(){
+
+}
+
 showCountry(localStorage.getItem("nome"));
+document.querySelector("[btn]").addEventListener("click", () => {
+    document.body.classList.toggle('dark-mode');
+})

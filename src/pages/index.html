@@ -14,16 +14,18 @@
     <title>Countries</title>
 
 </head>
-<header class="navbar">
-    <h1 class="navbar__titulo">Where in the world?</h1>
-    <div class="navbar__darkmode">
-        <img class="navbar__darkmode-icon" src="/src/imgs/moon.svg">
-        <p class="navbar__darkmode-text">Dark Mode</p>
-    </div>
-</header>
 
 <body>
-    <script src="/src/js/scripts.js" type="module"></script>
+    <header class="navbar">
+        <h1 class="navbar__titulo">Where in the world?</h1>
+        <div class="navbar__darkmode">
+            <button class="navbar__darkmode" btn>
+                <img class="navbar__darkmode-icon" src="/src/imgs/moon.svg">
+            </button>
+            <p class="navbar__darkmode-text">Dark Mode</p>
+        </div>
+    </header>
+
     <div class="container__top">
         <div class="container__top-search">
             <img class="container__top-search-icon" src="/src/imgs/search.svg">
@@ -66,7 +68,7 @@
 
         </ul>
     </div>
-
+    <script src="/src/js/scripts.js" type="module"></script>
 </body>
 
 </html>

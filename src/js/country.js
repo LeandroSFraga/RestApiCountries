@@ -30,10 +30,10 @@ function showCountryByCode(code) {
 }
 function foreach(country) {
     country.forEach(element => {
-        article.appendChild(createCountry(element.flags.svg, element.name.common, element.nativename, element.population, element.region, element.subregion, element.capital, element.tld, element.currencies, element.languages, element.borders));
+        article.appendChild(createCountry(element.flags.svg, element.name.common, element.name.official, element.population, element.region, element.subregion, element.capital, element.tld, element.currencies, element.languages, element.borders, element.likes));
     });
 }
-function createCountry(flag, name, nativename, population, region, subregion, capital, topleveldomain, currencies, languages, bordercountries) {
+function createCountry(flag, name, nativename, population, region, subregion, capital, topleveldomain, currencies, languages, bordercountries, likes) {
     const card = document.createElement("article");
     //const populationMask = maskPop(population);
     card.className = "container__country";
@@ -57,6 +57,10 @@ function createCountry(flag, name, nativename, population, region, subregion, ca
             ${showCountryByCode(bordercountries)}
             <li class="container__country-details-border-country">France</li>
         </ul>
+        <div class="container__country-likes">
+        <button class="btn-like"></button>
+        <p class="text-like"> ${likes} Likes </p>
+        </div>
     </div>`;
     return card;
 }
@@ -85,4 +89,15 @@ function createborder(country) {
     let borders = `<li class="container__country-details-border-country">${country}</li>`;
     return borders;
 }
+function addLike() {
+    const btn = document.querySelector('.btn-like');
+    btn.addEventListener('click', function () {
+        btn.classList.toggle('liked');
+    });
+}
+function removeLike() {
+}
 showCountry(localStorage.getItem("nome"));
+document.querySelector("[btn]").addEventListener("click", () => {
+    document.body.classList.toggle('dark-mode');
+});

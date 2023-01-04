@@ -18,7 +18,7 @@ function createCard(flag: string, name: string, population: number, region: stri
     const card = document.createElement("li");
     //const populationMask = maskPop(population);
     card.className = "container__flags-card";
-    card.innerHTML = `<button class="container__flags-card-flag" value="${name}" onclick="infoCountry(this.value)"><img
+    card.innerHTML = `<button class="container__flags-card-flag" btn-flag value="${name}" onclick="infoCountry(this.value)"><img
     src="${flag}" class="container__flags-card-flag"></button>
     <div class="container__flags-card-texts">
         <h3 class="container__flags-card-texts-name"><b>${name}</b></h3>
@@ -103,3 +103,6 @@ oceania.addEventListener('click', async function showByRegion() {
     foreach(countries);
 });
 
+document.querySelector("[btn]").addEventListener("click", () => {
+    document.body.classList.toggle('dark-mode');
+})
