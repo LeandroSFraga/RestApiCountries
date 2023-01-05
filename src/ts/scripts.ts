@@ -52,8 +52,11 @@ input.addEventListener('input', async function searchCountries() {
 // funcoes reutilizaveis
 
 async function listCountries() {
+    const load = document.querySelector('[principal]');
+    load.classList.add('loading');
     const countries = await conectApi.getCountries();
     console.log(countries);
+    load.classList.remove('loading');
     foreach(countries.data);
 }
 
@@ -109,14 +112,14 @@ oceania.addEventListener('click', async function showByRegion() {
 //darkmode
 
 document.querySelector("[btn]").addEventListener("click", () => {
-    if(localStorage.getItem("darkmode") === "sim"){
+    if (localStorage.getItem("darkmode") === "sim") {
         localStorage.setItem("darkmode", "não");
-    } else{
+    } else {
         localStorage.setItem("darkmode", "sim");
     }
     document.body.classList.toggle('dark-mode');
 })
 
-if (localStorage.getItem("darkmode") === "sim"){
+if (localStorage.getItem("darkmode") === "sim") {
     document.body.classList.toggle('dark-mode');
 }

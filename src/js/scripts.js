@@ -54,8 +54,11 @@ input.addEventListener('input', function searchCountries() {
 // funcoes reutilizaveis
 function listCountries() {
     return __awaiter(this, void 0, void 0, function* () {
+        const load = document.querySelector('[principal]');
+        load.classList.add('loading');
         const countries = yield conectApi.getCountries();
         console.log(countries);
+        load.classList.remove('loading');
         foreach(countries.data);
     });
 }

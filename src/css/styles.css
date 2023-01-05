@@ -12,6 +12,16 @@
     --font-family: 'Nunito Sans'
 }
 
+@keyframes button-loading-spinner {
+    from {
+        transform: rotate(0turn);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
+}
+
 .dark-mode {
     --color-elements: hsl(209, 23%, 22%);
     --color-background: hsl(207, 26%, 17%);
@@ -210,6 +220,23 @@ button {
 }
 
 /* Container Flags */
+
+
+.loading {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: 4px solid transparent;
+    border-top-color: var(--color-input);
+    border-radius: 50%;
+    animation: button-loading-spinner 1s ease infinite;
+}
 
 .container__flags {
     display: grid;

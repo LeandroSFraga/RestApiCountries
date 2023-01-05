@@ -11,15 +11,18 @@ import { conectApi } from "./conectapi.js";
 const article = document.querySelector("[container__country]");
 function showCountry(nome) {
     return __awaiter(this, void 0, void 0, function* () {
+        const load = document.querySelector('[princpal-country]');
+        load.classList.add('loading');
         const country = yield conectApi.searchCountries(nome);
         console.log(country);
+        load.classList.remove('loading');
         foreach(country.data);
         like();
     });
 }
 function foreach(country) {
     country.forEach(element => {
-        article.appendChild(createCountry(element.flag, element.name, element.name, //native name
+        article.appendChild(createCountry(element.flag, element.name, element.officialName, //native name
         element.population, element.region, element.subregion, element.capital, element.topLevelDomains, element.currencies, element.languages, element.borders, element.likes));
     });
 }
@@ -34,7 +37,7 @@ function createCountry(flag, name, nativename, population, region, subregion, ca
     <div class="container__country-details">
         <h2>${name}</h2>
             <ul class="container__country-details-list" >
-                <li><b>Native Name: </b>${nativename}</li >
+                <li><b>Official Name: </b>${nativename}</li >
                 <li><b>Population: </b>${population}</li >
                 <li><b>Region: </b>${region}</li >
                 <li><b>Sub Region: </b>${subregion}</li >
@@ -68,19 +71,19 @@ function toStringLang(list) {
 //FRONTEIRAS
 function borderof(borders) {
     let borderslist = '';
-    //     if( borders.length === 0){
-    //         return "none";
-    //     }
-    //     borders.forEach(Element => {
-    //         borderslist += `${createborder(Element)}
-    // `;
-    //         console.log(borderslist);
-    //     })
-    //     console.log(borderslist);
+    if (borders.length === 0) {
+        return "none";
+    }
+    borders.forEach(Element => {
+        borderslist += `${createborder(Element)}
+    `;
+        console.log(borderslist);
+    });
+    console.log(borderslist);
     return borderslist;
 }
 function createborder(country) {
-    let borders = `<li class="container__country-details-border-country">${country}</li>`;
+    let borders = `<button value="${country}"><li class="container__country-details-border-country">${country}</li></button>`;
     return borders;
 }
 //darkmode
@@ -110,7 +113,8 @@ function like() {
                 };
                 sessionStorage.setItem(`${countryname}liked`, "nao");
                 btn.classList.toggle('liked');
-                conectApi.putCountries(body);
+                yield conectApi.putCountries(body);
+                window.location.reload();
             }
             else {
                 const body = {
@@ -119,7 +123,8 @@ function like() {
                 };
                 btn.classList.toggle('non-liked');
                 sessionStorage.setItem(`${countryname}liked`, "sim");
-                conectApi.putCountries(body);
+                yield conectApi.putCountries(body);
+                window.location.reload();
             }
         });
     });

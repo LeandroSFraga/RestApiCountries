@@ -3,8 +3,11 @@ import { conectApi } from "./conectapi.js";
 const article = document.querySelector("[container__country]");
 
 async function showCountry(nome: string) {
+    const load = document.querySelector('[princpal-country]');
+    load.classList.add('loading');
     const country = await conectApi.searchCountries(nome);
     console.log(country);
+    load.classList.remove('loading');
     foreach(country.data);
     like();
 }
@@ -13,7 +16,7 @@ function foreach(country: Array<any>) {
     country.forEach(element => {
         article.appendChild(createCountry(element.flag,
             element.name,
-            element.name, //native name
+            element.officialName, //native name
             element.population,
             element.region,
             element.subregion,
@@ -27,7 +30,7 @@ function foreach(country: Array<any>) {
 }
 
 let created = false;
- function createCountry(
+function createCountry(
     flag: string,
     name: string,
     nativename: string,
@@ -50,7 +53,7 @@ let created = false;
     <div class="container__country-details">
         <h2>${name}</h2>
             <ul class="container__country-details-list" >
-                <li><b>Native Name: </b>${nativename}</li >
+                <li><b>Official Name: </b>${nativename}</li >
                 <li><b>Population: </b>${population}</li >
                 <li><b>Region: </b>${region}</li >
                 <li><b>Sub Region: </b>${subregion}</li >
@@ -90,20 +93,20 @@ function toStringLang(list: Object) {
 
 function borderof(borders: Array<any>): string {
     let borderslist = '';
-//     if( borders.length === 0){
-//         return "none";
-//     }
-//     borders.forEach(Element => {
-//         borderslist += `${createborder(Element)}
-// `;
-//         console.log(borderslist);
-//     })
-//     console.log(borderslist);
+        if( borders.length === 0){
+            return "none";
+        }
+        borders.forEach(Element => {
+            borderslist += `${createborder(Element)}
+    `;
+            console.log(borderslist);
+        })
+        console.log(borderslist);
     return borderslist;
 }
 
 function createborder(country: string) {
-    let borders: string = `<li class="container__country-details-border-country">${country}</li>`;
+    let borders: string = `<button value="${country}"><li class="container__country-details-border-country">${country}</li></button>`;
     return borders;
 }
 
@@ -136,7 +139,8 @@ function like() {
             }
             sessionStorage.setItem(`${countryname}liked`, "nao");
             btn.classList.toggle('liked');
-            conectApi.putCountries(body)
+            await conectApi.putCountries(body)
+            window.location.reload();
         } else {
             const body = {
                 name: countryname,
@@ -144,12 +148,12 @@ function like() {
             }
             btn.classList.toggle('non-liked');
             sessionStorage.setItem(`${countryname}liked`, "sim");
-            conectApi.putCountries(body)
+            await conectApi.putCountries(body)
+            window.location.reload();
         }
 
     });
-    if (sessionStorage.getItem(`${countryname}liked`) === "sim"){
+    if (sessionStorage.getItem(`${countryname}liked`) === "sim") {
         btn.classList.toggle('liked');
     }
 }
-
