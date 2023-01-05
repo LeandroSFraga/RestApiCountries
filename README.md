@@ -10,9 +10,9 @@ Esse projeto é uma solução baseada no desafio do Frontend Mentor:
 - :heavy_check_mark: Buscar por um país no campo de busca ;
 - :heavy_check_mark: Filtrar os países por continente ;
 - :heavy_check_mark: Visualizar informações dos países em uma página separada;
-- :x: Clicar nos países que fazem fronteira na tela de detalhes;
 - :heavy_check_mark: Poder mudar o tema da página entre Dark Mode e Light Mode;
-- :x: Favoritar países e exibir a quantidade de favoritos;
+- :heavy_check_mark: Favoritar países e exibir a quantidade de favoritos;
+- :x: Clicar nos países que fazem fronteira na tela de detalhes;
 
 ### Screenshot
 
@@ -22,7 +22,7 @@ Esse projeto é uma solução baseada no desafio do Frontend Mentor:
 
 - Detail page
 
-![image](https://user-images.githubusercontent.com/71570108/210555985-316526f3-5d18-4e4d-a38e-ea326ec4f233.png)
+![image](https://user-images.githubusercontent.com/71570108/210780702-6390f6c8-2a35-49d2-b613-1d08d24dba18.png)
 
 - Home Page Dark Mode
 
@@ -30,7 +30,7 @@ Esse projeto é uma solução baseada no desafio do Frontend Mentor:
 
 - Detail Page Dark Mode
 
-![image](https://user-images.githubusercontent.com/71570108/210556042-58e09d25-8dd1-486b-a5aa-b0253251af18.png)
+![image](https://user-images.githubusercontent.com/71570108/210780142-124a570f-a96f-468e-aa2b-0dd0042081ae.png)
 
 
 
