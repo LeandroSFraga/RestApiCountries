@@ -11,7 +11,7 @@ const API = "https://countries-api-esfl.onrender.com/countries";
 const API_NAME = "https://countries-api-esfl.onrender.com/countries/filterBy?name=";
 const API_REGION = "https://countries-api-esfl.onrender.com/countries/filterBy?region=";
 const API_PUT = "https://countries-api-esfl.onrender.com/countries/likes/";
-const API_CODE = "https://restcountries.com/v3.1/alpha/";
+const API_CODE = "https://countries-api-esfl.onrender.com/countries/filterBy?countrieCode=";
 function getCountries() {
     return __awaiter(this, void 0, void 0, function* () {
         const conect = yield fetch(API);

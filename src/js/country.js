@@ -72,17 +72,24 @@ function toStringLang(list) {
 function borderof(borders) {
     let borderslist = '';
     if (borders.length === 0) {
-        return "none";
+        return " none";
     }
     borders.forEach(Element => {
         borderslist += `${createborder(Element)}
     `;
-        console.log(borderslist);
     });
-    console.log(borderslist);
     return borderslist;
 }
+// async function countryNameBorder(country:string) {
+//     const countrybycode = await conectApi.searchCountriesByCode(country);
+//     return countrybycode.data;
+// }
 function createborder(country) {
+    // console.log(country);
+    // const nameborder = await countryNameBorder(country);
+    // if (!(nameborder.length === 0)){
+    //     console.log(nameborder[0].name);
+    // }
     let borders = `<button value="${country}"><li class="container__country-details-border-country">${country}</li></button>`;
     return borders;
 }
@@ -132,3 +139,11 @@ function like() {
         btn.classList.toggle('liked');
     }
 }
+// function clickBorder() {
+//     const borderName()
+//     const border = document.querySelectorAll('.container__country-details-border-country');
+//     border.forEach(element => function() {
+//         element.addEventListener('click', () => {
+//         })
+//     })
+// }

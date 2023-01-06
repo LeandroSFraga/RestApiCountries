@@ -9,7 +9,7 @@
     --homepage-text: 14px;
     --detail-page-text: 16px;
 
-    --font-family: 'Nunito Sans'
+    --font-family: 'Nunito Sans';
 }
 
 @keyframes button-loading-spinner {
