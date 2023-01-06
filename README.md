@@ -1,8 +1,10 @@
-# REST Countries API 
+# 🗺️ REST Countries API 
 
-Esse projeto é uma solução baseada no desafio do Frontend Mentor: 
+Esse projeto é uma solução baseada no desafio do [Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca): 
 
-:link: https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca
+### Links
+
+- Live Site URL: [Vercels](https://rest-api-countries-five.vercel.app/index.html)
 
 ## Funcionalidades que desejo alcançar
 
@@ -13,6 +15,8 @@ Esse projeto é uma solução baseada no desafio do Frontend Mentor:
 - :heavy_check_mark: Poder mudar o tema da página entre Dark Mode e Light Mode;
 - :heavy_check_mark: Favoritar países e exibir a quantidade de favoritos;
 - :x: Clicar nos países que fazem fronteira na tela de detalhes;
+
+
 
 ### Screenshot
 
@@ -34,7 +38,5 @@ Esse projeto é uma solução baseada no desafio do Frontend Mentor:
 
 
 
-### Links
 
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
